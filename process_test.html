@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Process Section Test — Malek Bouzgarrou</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --gold:#C9A84C;--gold-light:#E8C97A;--gold-dim:#7a6230;
+  --black:#050505;--surface:#141414;--surface2:#1c1c1c;--surface3:#1a1a1a;
+  --text:#e8e0d0;--text-dim:#7a7060;--white:#faf6ee;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--text);font-family:'Syne',sans-serif;overflow-x:hidden;}
+
+/* PAGE */
+#page{position:relative;z-index:1;}
+
+/* SHARED */
+.slabel{font-size:.59rem;letter-spacing:.36em;text-transform:uppercase;color:var(--gold);margin-bottom:52px;display:flex;align-items:center;gap:16px;}
+.slabel::before{content:'';width:44px;height:1px;background:var(--gold-dim);}
+
+/* ============================================
+   PROCESS SECTION - IMPROVED DESIGN
+   ============================================ */
+
+.proc{
+  padding:130px 60px;
+  background:linear-gradient(180deg, rgba(10,8,5,.82) 0%, rgba(8,6,3,.9) 100%);
+  position:relative;
+  overflow:hidden;
+}
+
+/* Decorative background element */
+.proc::before{
+  content:'';
+  position:absolute;
+  top:-50%;
+  left:-10%;
+  width:50%;
+  height:200%;
+  background:radial-gradient(ellipse at center, rgba(201,168,76,.03) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+.proch{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.3rem,4.5vw,4rem);
+  font-weight:300;
+  color:var(--white);
+  margin-bottom:68px;
+  position:relative;
+}
+.proch em{font-style:italic;color:var(--gold);}
+
+/* NEW PROCESS GRID - Connected Steps Design */
+.procg{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+  position:relative;
+}
+
+/* Connecting line between steps */
+.procg::before{
+  content:'';
+  position:absolute;
+  top:45px;
+  left:12.5%;
+  right:12.5%;
+  height:1px;
+  background:linear-gradient(to right,
+    transparent 0%,
+    var(--gold-dim) 10%,
+    var(--gold-dim) 90%,
+    transparent 100%
+  );
+  z-index:0;
+}
+
+.step{
+  background:transparent;
+  padding:0 24px;
+  position:relative;
+  z-index:1;
+}
+
+/* Step number with circle background */
+.stepn-wrap{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:90px;
+  height:90px;
+  margin:0 auto 28px;
+}
+
+.stepn-bg{
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  border:1px solid var(--surface2);
+  background:linear-gradient(145deg, rgba(20,20,20,.9), rgba(10,10,10,.95));
+  transition:all .4s cubic-bezier(.25,.46,.45,.94);
+}
+
+.step:hover .stepn-bg{
+  border-color:var(--gold-dim);
+  background:linear-gradient(145deg, rgba(201,168,76,.08), rgba(20,20,20,.95));
+  transform:scale(1.05);
+}
+
+/* Animated ring on hover */
+.stepn-ring{
+  position:absolute;
+  inset:-4px;
+  border-radius:50%;
+  border:1px solid transparent;
+  transition:all .4s cubic-bezier(.25,.46,.45,.94);
+}
+
+.step:hover .stepn-ring{
+  border-color:var(--gold);
+  opacity:.3;
+}
+
+.stepn{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.2rem;
+  font-weight:300;
+  color:var(--gold-dim);
+  line-height:1;
+  position:relative;
+  transition:color .4s;
+}
+
+.step:hover .stepn{color:var(--gold);}
+
+/* Step content */
+.stept{
+  font-size:.75rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--white);
+  margin-bottom:16px;
+  text-align:center;
+  position:relative;
+}
+
+/* Decorative line under title */
+.stept::after{
+  content:'';
+  display:block;
+  width:30px;
+  height:1px;
+  background:var(--gold-dim);
+  margin:12px auto 0;
+  transition:width .4s, background .4s;
+}
+
+.step:hover .stept::after{
+  width:50px;
+  background:var(--gold);
+}
+
+.stepd{
+  font-size:.88rem;
+  line-height:1.9;
+  color:var(--text-dim);
+  text-align:center;
+  padding:0 10px;
+  transition:color .3s;
+}
+
+.step:hover .stepd{color:var(--text);}
+
+/* Step icons */
+.step-icon{
+  width:24px;
+  height:24px;
+  margin:0 auto 16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.step-icon svg{
+  width:100%;
+  height:100%;
+  stroke:var(--gold-dim);
+  fill:none;
+  stroke-width:1.5;
+  transition:stroke .4s;
+}
+
+.step:hover .step-icon svg{stroke:var(--gold);}
+
+/* Arrow indicators between steps (desktop only) */
+.step-arrow{
+  position:absolute;
+  top:45px;
+  right:-12px;
+  width:24px;
+  height:24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--gold-dim);
+  font-size:.8rem;
+  opacity:.5;
+  transition:all .3s;
+}
+
+.step:hover .step-arrow{
+  color:var(--gold);
+  opacity:1;
+  transform:translateX(4px);
+}
+
+/* Remove arrow from last step */
+.step:last-child .step-arrow{display:none;}
+
+/* ============================================
+   ALTERNATIVE: CARD-BASED DESIGN
+   Uncomment this section to test card style
+   ============================================ */
+
+/* Card-based alternative (add class "card-style" to .procg) */
+.procg.card-style{
+  gap:24px;
+}
+
+.procg.card-style::before{display:none;}
+
+.procg.card-style .step{
+  background:linear-gradient(145deg, rgba(20,20,20,.96), rgba(15,15,15,.98));
+  border:1px solid var(--surface2);
+  border-radius:4px;
+  padding:40px 28px;
+  transition:all .4s cubic-bezier(.25,.46,.45,.94);
+}
+
+.procg.card-style .step:hover{
+  border-color:var(--gold-dim);
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px rgba(0,0,0,.4), 0 0 60px rgba(201,168,76,.05);
+}
+
+.procg.card-style .stepn-wrap{
+  width:auto;
+  height:auto;
+  margin:0 0 20px 0;
+  justify-content:flex-start;
+}
+
+.procg.card-style .stepn-bg{display:none;}
+.procg.card-style .stepn-ring{display:none;}
+
+.procg.card-style .stepn{
+  font-size:3.5rem;
+  color:var(--surface2);
+  transition:color .4s;
+}
+
+.procg.card-style .step:hover .stepn{color:var(--gold);}
+
+.procg.card-style .stept{
+  text-align:left;
+}
+
+.procg.card-style .stept::after{
+  margin:12px 0 0 0;
+}
+
+.procg.card-style .stepd{
+  text-align:left;
+  padding:0;
+}
+
+.procg.card-style .step-arrow{display:none;}
+
+/* ============================================
+   ALTERNATIVE: TIMELINE DESIGN
+   Uncomment this section to test timeline style
+   ============================================ */
+
+/* Timeline vertical alternative (add class "timeline" to .proc) */
+.proc.timeline .procg{
+  grid-template-columns:1fr;
+  gap:0;
+  max-width:800px;
+  margin:0 auto;
+}
+
+.proc.timeline .procg::before{
+  top:0;
+  bottom:0;
+  left:60px;
+  right:auto;
+  width:1px;
+  height:auto;
+  background:linear-gradient(to bottom,
+    transparent 0%,
+    var(--gold-dim) 5%,
+    var(--gold-dim) 95%,
+    transparent 100%
+  );
+}
+
+.proc.timeline .step{
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:40px;
+  padding:30px 0;
+  align-items:start;
+}
+
+.proc.timeline .stepn-wrap{
+  width:120px;
+  height:120px;
+  margin:0;
+}
+
+.proc.timeline .step-content{
+  padding-top:20px;
+}
+
+.proc.timeline .stept{
+  text-align:left;
+  font-size:.85rem;
+}
+
+.proc.timeline .stept::after{
+  margin:12px 0 0 0;
+}
+
+.proc.timeline .stepd{
+  text-align:left;
+  padding:0;
+  font-size:.95rem;
+}
+
+.proc.timeline .step-arrow{
+  display:none;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media(max-width:1100px){
+  .procg{grid-template-columns:repeat(2,1fr);gap:40px 24px;}
+  .procg::before{display:none;}
+  .step-arrow{display:none;}
+  .step{padding:0 16px;}
+}
+
+@media(max-width:900px){
+  .proc{padding:100px 40px;}
+}
+
+@media(max-width:700px){
+  .procg{grid-template-columns:1fr;}
+  .step{padding:30px 20px;background:linear-gradient(145deg, rgba(20,20,20,.5), transparent);border-radius:4px;border:1px solid var(--surface2);}
+  .step:hover{background:linear-gradient(145deg, rgba(20,20,20,.8), rgba(201,168,76,.03));border-color:var(--gold-dim);}
+  .stepn-wrap{width:70px;height:70px;margin-bottom:20px;}
+  .stepn{font-size:1.8rem;}
+  .stepd{padding:0;}
+}
+
+@media(max-width:560px){
+  .proc{padding:80px 24px;}
+  .proch{margin-bottom:48px;}
+}
+</style>
+</head>
+<body>
+
+<div id="page">
+
+<section class="proc" id="process">
+  <div class="slabel">My Process</div>
+  <h2 class="proch">From concept<br/>to <em>motion</em></h2>
+
+  <!-- DEFAULT: Connected Steps Design -->
+  <div class="procg">
+
+    <div class="step">
+      <div class="step-arrow">→</div>
+      <div class="stepn-wrap">
+        <div class="stepn-bg"></div>
+        <div class="stepn-ring"></div>
+        <div class="stepn">01</div>
+      </div>
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+      </div>
+      <div class="stept">Discovery</div>
+      <div class="stepd">Understanding your brand, product, and goals. Every animation begins with listening deeply to what makes your vision unique.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-arrow">→</div>
+      <div class="stepn-wrap">
+        <div class="stepn-bg"></div>
+        <div class="stepn-ring"></div>
+        <div class="stepn">02</div>
+      </div>
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+      </div>
+      <div class="stept">Concept</div>
+      <div class="stepd">Developing motion concepts and storyboards aligned with your brand personality — before a single frame is rendered.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-arrow">→</div>
+      <div class="stepn-wrap">
+        <div class="stepn-bg"></div>
+        <div class="stepn-ring"></div>
+        <div class="stepn">03</div>
+      </div>
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      </div>
+      <div class="stept">Animation</div>
+      <div class="stepd">Crafting with precision — frame by frame, curve by curve — until the motion feels alive, intentional, and premium.</div>
+    </div>
+
+    <div class="step">
+      <div class="stepn-wrap">
+        <div class="stepn-bg"></div>
+        <div class="stepn-ring"></div>
+        <div class="stepn">04</div>
+      </div>
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      </div>
+      <div class="stept">Delivery</div>
+      <div class="stepd">Final exports in all required formats — transparent BG, multiple resolutions, web-ready — for any platform.</div>
+    </div>
+
+  </div>
+
+  <!-- INSTRUCTIONS FOR TESTING OTHER DESIGNS:
+
+  To test the CARD-BASED design:
+  Change: <div class="procg">
+  To:      <div class="procg card-style">
+
+  To test the TIMELINE design:
+  Change: <section class="proc" id="process">
+  To:      <section class="proc timeline" id="process">
+  And:     <div class="procg">
+  To:      <div class="procg" style="grid-template-columns:1fr;gap:0;max-width:800px;margin:0 auto;">
+
+  -->
+
+</section>
+
+</div>
+
+</body>
+</html>
