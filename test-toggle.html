@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+:root{
+  --gold:#C9A84C;
+  --black:#050505;
+  --surface:#141414;
+  --text:#e8e0d0;
+  --text-dim:#7a7060;
+  --white:#faf6ee;
+}
+body{background:var(--black);color:var(--text);font-family:Arial,sans-serif;padding:40px;}
+.video-toggle{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:40px;padding:16px 32px;background:transparent;border:1px solid var(--text-dim);color:var(--gold);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .4s;width:fit-content;margin-left:auto;margin-right:auto;}
+.video-toggle:hover{background:var(--gold);color:var(--black);border-color:var(--gold);}
+.video-toggle::after{content:'▼';font-size:.8rem;transition:transform .3s;}
+.video-toggle.active::after{transform:rotate(180deg);}
+.video-grid-wrapper{max-height:0;overflow:hidden;transition:max-height .6s cubic-bezier(.4,0,.2,1),opacity .4s;opacity:0;}
+.video-grid-wrapper.open{max-height:2000px;opacity:1;}
+.vg{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:20px;}
+.vc{aspect-ratio:16/9;background:var(--surface);border:1px solid #333;}
+</style>
+</head>
+<body>
+
+<h2>Test Toggle Functionality</h2>
+<p>Click the button below to test the toggle:</p>
+
+<button class="video-toggle">See Examples</button>
+<div class="video-grid-wrapper">
+  <div class="vg">
+    <div class="vc"></div>
+    <div class="vc"></div>
+    <div class="vc"></div>
+    <div class="vc"></div>
+    <div class="vc"></div>
+    <div class="vc"></div>
+  </div>
+</div>
+
+<script>
+// VIDEO TOGGLE
+document.querySelectorAll('.video-toggle').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var wrapper=this.nextElementSibling;
+    this.classList.toggle('active');
+    wrapper.classList.toggle('open');
+    if(wrapper.classList.contains('open')){
+      this.innerHTML='Hide Examples ▼';
+    }else{
+      this.innerHTML='See Examples ▼';
+    }
+  });
+});
+</script>
+
+</body>
+</html>
