@@ -451,6 +451,8 @@ footer{border-top:1px solid var(--surface2);padding:34px 60px;display:flex;justi
   .vg,.ug{grid-template-columns:1fr;}
   #interactionGrid{grid-template-columns:1fr;max-width:320px;}
   .cta-refined{font-size:1rem;padding:18px 40px;letter-spacing:.15em;margin-top:20px;}
+  .hero{min-height:100svh;padding-top:86px;padding-bottom:72px;justify-content:center;}
+  .manimation-logo{width:min(92vw,430px);max-height:44svh;margin:0 auto 28px;transform:none;object-fit:contain;}
   #viralGrid{grid-template-columns:1fr;max-width:320px;}
   .proc{padding:80px 24px;}
   .proch{margin-bottom:48px;}
@@ -472,6 +474,10 @@ footer{border-top:1px solid var(--surface2);padding:34px 60px;display:flex;justi
   .pricing-desc,.pdesc,.ctsub{margin-left:auto;margin-right:auto;max-width:100%;}
   .hscroll{left:24px;}
   .tool{margin:0 auto;}
+}
+@media(max-width:380px){
+  .cta-refined{width:100%;padding:16px 20px;font-size:.82rem;letter-spacing:.12em;}
+  .manimation-logo{width:94vw;max-height:40svh;margin-bottom:24px;}
 }
 </style>
 </head>
@@ -995,7 +1001,7 @@ footer{border-top:1px solid var(--surface2);padding:34px 60px;display:flex;justi
 
 
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // VIDEO LAZY LOADING — only load and play when visible
 var videoObserver=new IntersectionObserver(function(entries){
   entries.forEach(function(entry){
