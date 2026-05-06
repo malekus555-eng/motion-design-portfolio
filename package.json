@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-{
+
   "name": "motion-design-portfolio",
   "version": "1.0.0",
   "description": "Static portfolio server with contact endpoint.",
@@ -32,4 +31,4 @@
     "node": ">=14"
   }
 }
->>>>>>> 478644174306fadc4f2a716ac6a04f42362c7c09
+
