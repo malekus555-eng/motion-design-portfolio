@@ -1,9 +1,10 @@
-<<<<<<< HEAD
+// Local development server - not deployed to production
+// This file is for local testing only and should not be used in Vercel
+
 require('dotenv').config();
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const nodemailer = require('nodemailer');
 
 const PORT = process.env.PORT || 4000;
 const rootDir = __dirname;
@@ -18,18 +19,6 @@ const mimeTypes = {
   '.svg': 'image/svg+xml',
   '.json': 'application/json',
 };
-
-let transporter = null;
-if (process.env.EMAIL_USER && process.env.EMAIL_PASS && nodemailer.createTransport) {
-  transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-  });
-  console.log('Email service initialized');
-}
 
 function sendJson(res, statusCode, payload) {
   const body = JSON.stringify(payload);
