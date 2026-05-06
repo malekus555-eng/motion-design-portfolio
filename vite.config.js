@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import { resolve } from 'path'
 
 export default defineConfig({
   server: {
@@ -10,7 +11,8 @@ export default defineConfig({
     assetsDir: 'assets',
     rollupOptions: {
       input: {
-        main: './index.html',
+        main: resolve(__dirname, 'index.html'),
+        'motion-design-case-studies': resolve(__dirname, 'motion-design-case-studies.html'),
       },
     },
   },
