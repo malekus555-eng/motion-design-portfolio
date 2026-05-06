@@ -1163,7 +1163,7 @@ if(sendButton){sendButton.addEventListener('click',async function(){
   sendButton.textContent='Sending...';
 
   try{
-    var response=await fetch('/contact',{
+    var response=await fetch('/api/contact',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify(payload),
