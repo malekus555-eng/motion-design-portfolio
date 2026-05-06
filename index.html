@@ -452,7 +452,7 @@ footer{border-top:1px solid var(--surface2);padding:34px 60px;display:flex;justi
   #interactionGrid{grid-template-columns:1fr;max-width:320px;}
   .cta-refined{width:auto;max-width:calc(100vw - 48px);font-size:.9rem;padding:16px 26px;letter-spacing:.12em;margin:18px auto 0;white-space:nowrap;}
   .hero{min-height:100svh;padding-top:86px;padding-bottom:72px;justify-content:center;}
-  .manimation-logo{width:min(142vw,680px);max-width:none;max-height:48svh;margin:0 auto 22px;transform:translateX(-2.2%);object-fit:contain;}
+  .manimation-logo{width:min(94vw,520px);max-width:100%;max-height:48svh;margin:0 auto 24px;transform:none;object-fit:contain;}
   #viralGrid{grid-template-columns:1fr;max-width:320px;}
   .proc{padding:80px 24px;}
   .proch{margin-bottom:48px;}
@@ -477,7 +477,7 @@ footer{border-top:1px solid var(--surface2);padding:34px 60px;display:flex;justi
 }
 @media(max-width:380px){
   .cta-refined{width:auto;max-width:calc(100vw - 40px);padding:15px 18px;font-size:.78rem;letter-spacing:.1em;}
-  .manimation-logo{width:148vw;max-height:44svh;margin-bottom:20px;transform:translateX(-2.2%);}
+  .manimation-logo{width:96vw;max-height:44svh;margin-bottom:22px;transform:none;}
 }
 </style>
 </head>
@@ -518,7 +518,10 @@ footer{border-top:1px solid var(--surface2);padding:34px 60px;display:flex;justi
     <line x1="0" y1="700" x2="1400" y2="700"/><line x1="250" y1="0" x2="250" y2="900"/>
     <line x1="900" y1="0" x2="900" y2="900"/><line x1="1200" y1="0" x2="1200" y2="900"/>
   </svg>
-  <img src="2nd manimation log.png" alt="Manimation" class="manimation-logo">
+  <picture>
+    <source media="(max-width: 560px)" srcset="manimation-logo-cropped.png">
+    <img src="2nd manimation log.png" alt="Manimation" class="manimation-logo">
+  </picture>
   <a href="motion-design-case-studies.html" class="cta-refined" aria-label="Explore motion design case studies">Explore Case Studies <span class="arrow">→</span></a>
   <div class="hnum">50+</div>
   <div class="hbadge">
