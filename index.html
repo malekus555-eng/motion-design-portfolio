@@ -1139,24 +1139,27 @@ if(freePackButton){freePackButton.addEventListener('click',async function(event)
   if(action){action.textContent='Preparing';}
 
   try{
-    // Enhanced pre-flight: Ensure we aren't accidentally downloading an HTML error page
-    var check = await fetch('./manimation-free-motion-pack.zip');
-    if(!check.ok) throw new Error('Not Found');
-    
-    // Check if the server returned HTML (which happens with SPA fallbacks/404s)
-    var ct = check.headers.get('content-type');
+    // Fetch the file directly as a blob to ensure we have the actual data
+    var response = await fetch('/manimation-free-motion-pack.zip');
+    if(!response.ok) throw new Error('Not Found');
+
+    // Strict check: If the server returns HTML, it's a fallback/404, not the ZIP
+    var ct = response.headers.get('content-type');
     if(ct && ct.includes('text/html')) throw new Error('Invalid content type');
 
-    // Premium preparation feel
+    var blob = await response.blob();
+    var url = window.URL.createObjectURL(blob);
+
     await new Promise(function(r){setTimeout(r,800);});
     if(action){action.textContent='Ready';}
 
     var link=document.createElement('a');
-    link.href='./manimation-free-motion-pack.zip';
-    link.setAttribute('download', 'manimation-free-motion-pack.zip');
+    link.href=url;
+    link.download='manimation-free-motion-pack.zip';
     document.body.appendChild(link);
     link.click();
     link.remove();
+    window.URL.revokeObjectURL(url);
     
     setTimeout(function(){if(action){action.textContent=originalText;}},1600);
   }catch(error){
