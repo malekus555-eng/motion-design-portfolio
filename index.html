@@ -98,16 +98,10 @@ nav ul a:hover{color:var(--gold);}
 .cta-refined:hover .arrow{transform:translateX(6px);}
 .cta-refined:focus{outline:none;box-shadow:0 0 0 3px rgba(201,168,76,0.3), 0 4px 20px rgba(201,168,76,0.1);}
 
-/* Free Pack Download */
-.free-pack-cta{position:absolute;top:86px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:14px;padding:12px 16px 12px 18px;border:1px solid rgba(201,168,76,.36);background:linear-gradient(135deg,rgba(20,20,20,.92),rgba(10,8,5,.82));box-shadow:0 14px 42px rgba(0,0,0,.32),0 0 28px rgba(201,168,76,.08);text-decoration:none;color:var(--text);z-index:5;transition:all .35s cubic-bezier(.25,.46,.45,.94);}
-.free-pack-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.1),rgba(201,168,76,0.2),rgba(201,168,76,0.1),transparent);background-size:200% 100%;animation:shimmer 3s infinite linear;opacity:0;transition:opacity .35s;pointer-events:none;}
-.free-pack-cta:hover{border-color:var(--gold);transform:translateX(-50%) translateY(-2px);box-shadow:0 18px 50px rgba(0,0,0,.4),0 0 34px rgba(201,168,76,.14);}
-.free-pack-cta:hover::before{opacity:1;}
-.free-pack-mark{width:34px;height:34px;border:1px solid rgba(201,168,76,.45);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1rem;flex-shrink:0;background:rgba(201,168,76,.06);}
-.free-pack-copy{display:flex;flex-direction:column;gap:3px;white-space:nowrap;}
-.free-pack-label{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-light);font-weight:700;}
-.free-pack-meta{font-size:.58rem;letter-spacing:.11em;text-transform:uppercase;color:var(--text-dim);}
-.free-pack-action{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border-left:1px solid rgba(201,168,76,.22);padding-left:14px;white-space:nowrap;font-weight:700;}
+/* Service List CTA */
+.svc-cta{display:inline-flex;align-items:center;gap:10px;font-family:'Syne',sans-serif;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid var(--gold-dim);padding:8px 18px;transition:all .3s;background:rgba(201,168,76,.05);font-weight:700;line-height:1;}
+.svc-cta:hover{background:var(--gold);color:var(--black);border-color:var(--gold);}
+.svc-cta .free-pack-action{font-style:normal;font-weight:800;}
 
 /* Manimation Title */
 .manimation-title{font-family:'Cormorant Garamond',serif;font-size:clamp(4rem,12vw,10rem);font-weight:300;line-height:.92;color:var(--gold);letter-spacing:.05em;text-transform:none;}
@@ -548,14 +542,6 @@ footer{border-top:1px solid var(--surface2);padding:34px 60px;display:flex;justi
     <line x1="0" y1="700" x2="1400" y2="700"/><line x1="250" y1="0" x2="250" y2="900"/>
     <line x1="900" y1="0" x2="900" y2="900"/><line x1="1200" y1="0" x2="1200" y2="900"/>
   </svg>
-  <a href="https://drive.google.com/drive/folders/12sR10hb7yYEg8NnGy6ga5YLZBtXBHrFE?usp=drive_link" target="_blank" class="free-pack-cta" id="freePackDownload" aria-label="Download the free Manimation motion assets pack">
-    <span class="free-pack-mark">↓</span>
-    <span class="free-pack-copy">
-      <span class="free-pack-label">Free Motion Assets Pack</span>
-      <span class="free-pack-meta">50 overlays · instant download</span>
-    </span>
-    <span class="free-pack-action">Download</span>
-  </a>
   <picture>
     <source media="(max-width: 560px)" srcset="manimation-logo-cropped.png">
     <img src="2nd manimation log.png" alt="Manimation" class="manimation-logo">
@@ -643,7 +629,7 @@ footer{border-top:1px solid var(--surface2);padding:34px 60px;display:flex;justi
       <li>Social Media Motion <span>Content</span></li>
       <li>Typography Animation <span>Type</span></li>
       <li>SaaS / App UI Motion <span>Product</span></li>
-      <li>Animated Branding Kits <span>Package</span></li>
+      <li>Free Pack <span><a href="https://drive.google.com/drive/folders/12sR10hb7yYEg8NnGy6ga5YLZBtXBHrFE?usp=drive_link" target="_blank" class="svc-cta" id="freePackDownload" aria-label="Download the free Manimation motion assets pack">Download <span class="free-pack-action">↓</span></a></span></li>
     </ul>
     <div class="mascot-container">
       <img src="./about_me_mascot.png" alt="Manimation Mascot" class="mascot"/>
