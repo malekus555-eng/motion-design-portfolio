@@ -548,7 +548,7 @@ footer{border-top:1px solid var(--surface2);padding:34px 60px;display:flex;justi
     <line x1="0" y1="700" x2="1400" y2="700"/><line x1="250" y1="0" x2="250" y2="900"/>
     <line x1="900" y1="0" x2="900" y2="900"/><line x1="1200" y1="0" x2="1200" y2="900"/>
   </svg>
-  <a href="#" class="free-pack-cta" id="freePackDownload" aria-label="Download the free Manimation motion assets pack">
+  <a href="https://drive.google.com/drive/folders/12sR10hb7yYEg8NnGy6ga5YLZBtXBHrFE?usp=drive_link" target="_blank" class="free-pack-cta" id="freePackDownload" aria-label="Download the free Manimation motion assets pack">
     <span class="free-pack-mark">↓</span>
     <span class="free-pack-copy">
       <span class="free-pack-label">Free Motion Assets Pack</span>
@@ -1130,32 +1130,15 @@ document.querySelectorAll('.video-toggle').forEach(function(btn){
 
 // FREE PACK DOWNLOAD
 var freePackButton=document.getElementById('freePackDownload');
-if(freePackButton){freePackButton.addEventListener('click',async function(event){
-  event.preventDefault();
+if(freePackButton){freePackButton.addEventListener('click',function(){
   var action=freePackButton.querySelector('.free-pack-action');
   var originalText=action?action.textContent:'Download';
   
-  freePackButton.style.pointerEvents='none';
-  if(action){action.textContent='Preparing';}
-
-  try{
-    // Direct link to your Google Drive folder
-    var downloadUrl = 'https://drive.google.com/drive/folders/12sR10hb7yYEg8NnGy6ga5YLZBtXBHrFE?usp=drive_link';
-
-    await new Promise(function(r){setTimeout(r,800);}); // Brief delay for UX effect
-
-    if(action){action.textContent='Ready';}
-    
-    // Open the download in a new tab
-    window.open(downloadUrl, '_blank');
-
-    setTimeout(function(){if(action){action.textContent=originalText;}},1600);
-  }catch(error){
-    console.error('Download failed:', error);
-    alert('There was an issue opening the download folder. Please try again or contact me directly.');
-    if(action){action.textContent=originalText;}
-  }finally{
-    freePackButton.style.pointerEvents='';
+  if(action){
+    action.textContent='Opening...';
+    setTimeout(function(){
+      action.textContent=originalText;
+    },2500);
   }
 });}
 
