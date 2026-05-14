@@ -37,3 +37,5 @@ motion-design-case-studies.html
 # Local development
 server.js
 .env.example
+.vercel
+.env*.local
