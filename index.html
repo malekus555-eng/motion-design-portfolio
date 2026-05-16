@@ -787,7 +787,8 @@ footer{border-top:1px solid var(--surface2);padding:34px 60px;display:flex;justi
       <div class="vo"><div class="vt">Uber</div><div class="vtg">App UI Motion</div></div>
     </div>
     <div class="vc" data-idx="4" data-deck="ui" data-title="Spark — UI Animation v2">
-      <video data-src="./spark%20version%202.mp4" muted loop playsinline preload="/iaiaU
+      <video data-src="./spark%20version%202.mp4" muted loop playsinline preload="none"></video>
+      <div class="vo"><div class="vt">Spark</div><div class="vtg">UI / UX Animation</div></div>
     </div>
   </div>
   </div>
@@ -803,7 +804,8 @@ footer{border-top:1px solid var(--surface2);padding:34px 60px;display:flex;justi
   <p class="pdesc">Crafted interaction animations for both mobile apps and web platforms — smooth, purposeful micro-interactions and transitions that elevate the user experience and make digital interfaces feel truly alive.</p>
   <button class="video-toggle">See Examples <span class="arrow">▼</span></button>
   <div class="video-grid-wrapper">
-  <div class="vg" id="interactionGrid"> =a
+  <div class="vg" id="interactionGrid">
+    <div class="vc" data-idx="0" data-deck="interaction" data-title="App — UI/UX Interaction Animation">
       <video data-src="./app_ux_animation.mp4" muted loop playsinline preload="none"></video>
       <div class="vo"><div class="vt">App Interaction</div><div class="vtg">UI / UX · Mobile</div></div>
     </div>
@@ -826,10 +828,11 @@ footer{border-top:1px solid var(--surface2);padding:34px 60px;display:flex;justi
   </div>
   <p class="pdesc">Clear, engaging explainer animations that break down complex ideas into compelling visual stories. From product demos to UI walkthroughs, these videos communicate value with clarity and style.</p>
   <button class="video-toggle">See Examples <span class="arrow">▼</span></button>
-  <div clasg" id="explainerGrid">
+  <div class="vg" id="explainerGrid">
     <div class="vc" data-idx="0" data-deck="explainer" data-title="Claude UI — Explainer Animation">
       <video data-src="./claude_explainer.mp4" muted loop playsinline preload="none"></video>
-      <div class="vo"><div class="vt">Claude UI</div><div class="vtg">Product Explainer</div><
+      <div class="vo"><div class="vt">Claude UI</div><div class="vtg">Product Explainer</div></div>
+    </div>
     <div class="vc" data-idx="1" data-deck="explainer" data-title="ATB — Explainer Animation">
       <video data-src="./atb_explainer.mp4" muted loop playsinline preload="none"></video>
       <div class="vo"><div class="vt">ATB</div><div class="vtg">Brand Explainer</div></div>
@@ -876,12 +879,14 @@ footer{border-top:1px solid var(--surface2);padding:34px 60px;display:flex;justi
   <button class="video-toggle">See Examples <span class="arrow">▼</span></button>
   <div class="video-grid-wrapper">
   <div class="vg" id="viralGrid">
-    <div class="vc" data-idx="0" data-deck="viral" data-title="Viral Podcast Reel"> ./viral_p
+    <div class="vc" data-idx="0" data-deck="viral" data-title="Viral Podcast Reel">
+      <video data-src="./viral_podcast.mp4" muted loop playsinline preload="none"></video>
       <div class="vo"><div class="vt">Podcast Reel</div><div class="vtg">Viral Content · Social Media</div></div>
     </div>
     <div class="vc" data-idx="1" data-deck="viral" data-title="Viral Real Estate Reel">
       <video data-src="./viral_realestate.mp4" muted loop playsinline preload="none"></video>
-      <div clttid
+      <div class="vo"><div class="vt">Real Estate Reel</div><div class="vtg">Viral Content · Real Estate</div></div>
+    </div>
     <div class="vc" data-idx="2" data-deck="viral" data-title="Marchon Gym — Viral Reel Edit">
       <video data-src="./marchon_gym_reel.mp4" muted loop playsinline preload="none"></video>
       <div class="vo"><div class="vt">Marchon Gym</div><div class="vtg">Viral Content · Fitness</div></div>
@@ -907,7 +912,8 @@ footer{border-top:1px solid var(--surface2);padding:34px 60px;display:flex;justi
   <div class="slabel">My Process</div>
   <h2 class="proch">From concept<br/>to <em>motion</em></h2>
   <div class="procg">
-    <div c"step-arrow">→</div>
+    <div class="step">
+      <div class="step-arrow">→</div>
       <div class="stepn-wrap">
         <div class="stepn-bg"></div>
         <div class="stepn-ring"></div>
@@ -1095,8 +1101,9 @@ var LOGO=[
   {src:'./Logo%20Animation%20Orbix%2011.mp4',title:'Orbix — Logo Animation'},
   {src:'./serelle%20typo%20animation.mp4',title:'Serelle — Typography Animation'},
 ];
-ERACTION=[
-  {src  ./web_ux_animation.mp4',title:'Web — UI/UX Interaction Animation'},
+var INTERACTION=[
+  {src:'./app_ux_animation.mp4',title:'App — UI/UX Interaction Animation'},
+  {src:'./web_ux_animation.mp4',title:'Web — UI/UX Interaction Animation'},
 ];
 var EXPLAINER=[
   {src:'./claude_explainer.mp4',title:'Claude UI — Explainer Animation'},
@@ -1104,7 +1111,8 @@ var EXPLAINER=[
 ];
 var PRODUCT3D=[
   {src:'./3D_Animation_Soda_Ad_2.mp4',title:'3D Soda Ad — Product Animation'},
-  
+  {src:'./christian_dior_sneakers_3d_ad.mp4',title:'Christian Dior Sneakers — 3D Ad'},
+];
 var VIRAL=[
   {src:'./viral_podcast.mp4',title:'Viral Podcast Reel'},
   {src:'./viral_realestate.mp4',title:'Viral Real Estate Reel'},
