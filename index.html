@@ -1144,21 +1144,26 @@ footer{border-top:1px solid var(--surface2);padding:34px 60px;display:flex;justi
 
 <script>
 // VIDEO LAZY LOADING — only load and play when visible
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 var videoObserver=new IntersectionObserver(function(entries){
-  entries.forEach(function(entry){
+  entries.forEach(function(entry, index){
     var v=entry.target;
     if(entry.isIntersecting){
-      if(v.dataset.src){
-        v.src=v.dataset.src;
-        v.removeAttribute('data-src');
-        v.load();
-      }
-      var p=v.play();if(p!==undefined){p.catch(function(){});}
+      // Stagger loading to prevent bandwidth saturation on mobile
+      setTimeout(function(){
+        if(!entry.isIntersecting) return;
+        if(v.dataset.src){
+          v.src=v.dataset.src;
+          v.removeAttribute('data-src');
+        }
+        var p=v.play();
+        if(p!==undefined){p.catch(function(){});}
+      }, index * (isMobile ? 150 : 50));
     }else{
       v.pause();
     }
   });
-},{rootMargin:'250px',threshold:0.01});
+},{rootMargin: isMobile ? '80px' : '150px',threshold:0.1});
 
 document.querySelectorAll('.vc video').forEach(function(v){
   v.muted=true;v.loop=true;v.playsInline=true;
